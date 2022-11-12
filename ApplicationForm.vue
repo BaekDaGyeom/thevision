@@ -31,20 +31,6 @@
     /* eslint-disable */
     
     import axios from 'axios'
-
-    // export default {
-    //     setup(){
-    //         axios.post('http://localhost:3000', {
-    //             'name': Name.value,
-    //             'st_num': st_Num.value
-    //         }).then(res => {
-    //             console.log(res);
-    //         }).then(err => {
-    //             console.log(err);
-    //         });
-
-    //     }
-    // }
     
     function joinform_check() {
 
@@ -54,13 +40,6 @@
         var Field = document.getElementById("field");
         var Dep = document.getElementById("dep");
         var Pass = document.getElementById("pass");
-
-        // var NameTrue = false;
-        // var st_NumTrue = false;
-        // var ph_NumTrue = false;
-        // var FieldTrue = false;
-        // var DepTrue = false;
-        // var PassTrue = false;
         
         var kor_check = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g; 
         var Num_check = /^[0-9]+$/g;
@@ -89,14 +68,7 @@
             return false;
         }
 
-        if(!Num_check.test(st_Num.value)){
-            alert("학번을 다시 입력하세요.");
-            st_Num.focus();
-            console.log(st_Num.value);
-            return false;
-        }
-        
-        if(getDigit(st_Num.value) != 8){
+        if(!Num_check.test(st_Num.value) || getDigit(st_Num.value) != 8){
             alert("학번을 다시 입력하세요.");
             st_Num.focus();
             return false;
@@ -110,34 +82,10 @@
         //     return false;
         // }
 
-        // if(!Num_check.test(ph_Num.value)){
+        // if(!Num_check.test(ph_Num.value) || getDigit(ph_Num.value) != 11){
         //     alert("전화번호를 다시 입력하세요.");
         //     ph_Num.focus();
         //     console.log(ph_Num.value);
-        //     return false;
-        // }
-        
-        // if(getDigit(ph_Num.value) != 11){
-        //     alert("전화번호를 다시 입력하세요.");
-        //     ph_Num.focus();
-        //     return false;
-        // }
-
-        // if(ph_Num.value == ""){
-        //     alert("전화번호를 입력하세요.");
-        //     ph_Num.focus();
-        //     return false;
-        // }
-
-        // if(!Num_check.test(ph_Num.value)){
-        //     alert("전화번호를 다시 입력하세요.");
-        //     ph_Num.focus();
-        //     return false;
-        // }
-
-        // if(getDigit(ph_Num.value) != 11){
-        //     alert("전화번호를 다시 입력하세요.");
-        //     ph_Num.focus();
         //     return false;
         // }
 
@@ -205,9 +153,5 @@
 </script>
 
 <style>
-    /* input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-} */
+
 </style>
