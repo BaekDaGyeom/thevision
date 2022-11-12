@@ -29,9 +29,21 @@
 <script setup>
     
     /* eslint-disable */
+    
+    import axios from 'axios'
 
     // export default {
-    //     name: 'Application'
+    //     setup(){
+    //         axios.post('http://localhost:3000', {
+    //             'name': Name.value,
+    //             'st_num': st_Num.value
+    //         }).then(res => {
+    //             console.log(res);
+    //         }).then(err => {
+    //             console.log(err);
+    //         });
+
+    //     }
     // }
     
     function joinform_check() {
@@ -77,14 +89,14 @@
             return false;
         }
 
-        if(!Num_check.test(st_Num)){
+        if(!Num_check.test(st_Num.value)){
             alert("학번을 다시 입력하세요.");
             st_Num.focus();
             console.log(st_Num.value);
             return false;
         }
         
-        if(getDigit(st_Num) != 8){
+        if(getDigit(st_Num.value) != 8){
             alert("학번을 다시 입력하세요.");
             st_Num.focus();
             return false;
@@ -92,23 +104,42 @@
 
         //연락처 검사 (11자리 숫자인지 판별)
 
-        if(ph_Num.value == ""){
-            alert("전화번호를 입력하세요.");
-            ph_Num.focus();
-            return false;
-        }
+        // if(ph_Num.value == ""){
+        //     alert("전화번호를 입력하세요.");
+        //     ph_Num.focus();
+        //     return false;
+        // }
 
-        if(!Num_check.test(ph_Num.value)){
-            alert("전화번호를 다시 입력하세요.");
-            ph_Num.focus();
-            return false;
-        }
+        // if(!Num_check.test(ph_Num.value)){
+        //     alert("전화번호를 다시 입력하세요.");
+        //     ph_Num.focus();
+        //     console.log(ph_Num.value);
+        //     return false;
+        // }
+        
+        // if(getDigit(ph_Num.value) != 11){
+        //     alert("전화번호를 다시 입력하세요.");
+        //     ph_Num.focus();
+        //     return false;
+        // }
 
-        if(getDigit(ph_Num.value) != 11){
-            alert("전화번호를 다시 입력하세요.");
-            ph_Num.focus();
-            return false;
-        }
+        // if(ph_Num.value == ""){
+        //     alert("전화번호를 입력하세요.");
+        //     ph_Num.focus();
+        //     return false;
+        // }
+
+        // if(!Num_check.test(ph_Num.value)){
+        //     alert("전화번호를 다시 입력하세요.");
+        //     ph_Num.focus();
+        //     return false;
+        // }
+
+        // if(getDigit(ph_Num.value) != 11){
+        //     alert("전화번호를 다시 입력하세요.");
+        //     ph_Num.focus();
+        //     return false;
+        // }
 
         //분야 검사
 
@@ -150,16 +181,33 @@
                 return i;
         }  
         
-        document.Application.submit();
-    }
+        //document.Application.submit();
+        axios.post('https://jsonplaceholder.typicode.com/users/', 
+            {
+                name: Name.value,
+                st_num: st_Num.value,
+                ph_num: ph_Num.value,
+                field: Field.value,
+                dep: Dep.value,
+                pass: Pass.value
+            }
+            )
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+
+    
 
 </script>
 
 <style>
-    input[type="number"]::-webkit-outer-spin-button,
+    /* input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
+} */
 </style>
-
