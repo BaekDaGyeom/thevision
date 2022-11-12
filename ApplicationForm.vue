@@ -17,18 +17,23 @@
         <input type="text" id="dep">
         <br><br>
         <label for="pass">비밀번호 </label>
-        <input type="password" id="pass">
+        <input type="password" id="pass" placeholder="영문자+숫자+특수문자 조합">
         <br><br>
     </form>
     <div class="join_btn">
-        <button type="button" onclick="joinform_check();">가입하기</button>
+        <button type="button" id="submit" @click="joinform_check();">가입하기</button>
     </div>
 
 </template>
 
-<script>
+<script setup>
+    
     /* eslint-disable */
 
+    // export default {
+    //     name: 'Application'
+    // }
+    
     function joinform_check() {
 
         var Name = document.getElementById("name");
@@ -44,189 +49,117 @@
         // var FieldTrue = false;
         // var DepTrue = false;
         // var PassTrue = false;
-
+        
+        var kor_check = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g; 
+        var Num_check = /^[0-9]+$/g;
+        var Pass_check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/g;
+        
         //이름 검사 (한글인지 판별)
 
-        if(Name.value != ""){
-            if(checkKor(Name) == true){
-                if(checkSpace(Name) == false){
-                    //NameTrue = true;                  
-                }
-            }
-            else{
-                alert("이름을 다시 입력해주세요.");
-            }
+        if(Name.value == ""){
+            alert("이름을 입력하세요.");
+            Name.focus();
+            return false;
+        };
+        
+
+        if(!kor_check.test(Name.value)){
+            alert("이름을 다시 입력하세요.");
+            Name.focus();
+            return false;
         }
-        else{
-            alert("이름을 입력해주세요.");
-        }
+
         //학번 검사 (8자리 숫자인지 판별)
 
-        if(st_Num.value != ""){
-            if(checkNum(st_Num) == true){
-                if(checkSpace(st_Num) == false){
-                    if(getDigit(st_Num) == 8){
-                        //st_NumTrue = true;
-                    }
-                }      
-            }
-            else{
-                alert("학번을 다시 입력해주세요.");
-            }
+        if(st_Num.value == ""){
+            alert("학번을 입력하세요.");
+            st_Num.focus();
+            return false;
         }
-        else{
-            alert("학번을 입력해주세요.");
 
+        if(!Num_check.test(st_Num)){
+            alert("학번을 다시 입력하세요.");
+            st_Num.focus();
+            console.log(st_Num.value);
+            return false;
+        }
+        
+        if(getDigit(st_Num) != 8){
+            alert("학번을 다시 입력하세요.");
+            st_Num.focus();
+            return false;
         }
 
         //연락처 검사 (11자리 숫자인지 판별)
 
-        var reg = /^[0-9]+/g;
-
-        if(ph_Num.value != ""){
-            if(getDigit(ph_Num) == 11){
-                if(!reg.test(ph_Num) == true){
-                    if(checkSpace(ph_Num) == false){
-                        if(checkSpecial(ph_Num) == false){
-                            //ph_NumTrue = true;
-                        }
-                    }
-                }
-            }
-            else{
-                alert("연락처를 다시 입력해주세요.");
-            }
-        }
-        else{
-            alert("연락처를 입력해주세요.");
-
+        if(ph_Num.value == ""){
+            alert("전화번호를 입력하세요.");
+            ph_Num.focus();
+            return false;
         }
 
-        //분야 검사 (한글, 영문 판별)
-
-        if(Field.value != ""){
-            if(checkKor(Field) == true || checkEng(Field) == true){
-                //FieldTrue = true;
-            }
-            else{
-                alert("분야를 다시 입력해주세요.")
-            }
-        }
-        else{
-            alert("분야를 입력해주세요.")
-
+        if(!Num_check.test(ph_Num.value)){
+            alert("전화번호를 다시 입력하세요.");
+            ph_Num.focus();
+            return false;
         }
 
-        //학과 검사 (한글, 영문 판별)
+        if(getDigit(ph_Num.value) != 11){
+            alert("전화번호를 다시 입력하세요.");
+            ph_Num.focus();
+            return false;
+        }
 
-        if(Dep.value != ""){
-            if(checkKor(Dep) == true || checkEng(Dep) == true){
-                //DepTrue = true;
-            }
-            else{
-                alert("학과를 다시 입력해주세요.")
-            }
-            }
-        else{
-            alert("학과를 입력해주세요.")
+        //분야 검사
 
+        if(Field.value == ""){
+            alert("분야를 입력하세요.");
+            Field.focus();
+            return false;
+        }
+
+        //학과 검사
+
+        if(Dep.value == ""){
+            alert("학과를 입력하세요.");
+            Dep.focus();
+            return false;
         }
 
         //비밀번호 검사 (영어, 숫자, 특수문자 확인)
 
-        if(Pass.value != ""){
-            if(checkEng(Pass) == true){
-                if(checkNum(Pass) == true){
-                    if(checkSpecial(Pass) == true){
-                        //PassTrue = true;
-                    }
-                }
-            }
-            else{
-                alert("비밀번호를 다시 입력해주세요.")
-            }
+        if(Pass.value == ""){
+            alert("비밀번호를 입력해주세요.");
+            Pass.focus();
+            return false;
         }
-        else{
-            alert("비밀번호를 입력해주세요.")
-
+        
+        if(!Pass_check.test(Pass.value)){
+            alert("비밀번호는 영문자+숫자+특수문자 조합으로 8~25자리 사용해야 합니다.");
+            Pass.focus();
+            return false;
         }
 
-        document.join_form.sublit();
-   
-     }
 
 
-
-
-
-// 숫자 자릿수 판별
-function getDigit(num) {
-  num = num.toString();
-  var i=0;
-  while(num[i]) { i++; };
-  return i;
-}   
-
-// 특수 문자 체크 
-     function checkSpecial(str) { 
-     const regExp = /[!?@#$%^&*():;+-=~{}<>\_\[\]\|\\\"\'\,\.\/\`\₩]/g;
-    if(regExp.test(str)) {
-        return true;
-    }else{
-    } 
-} 
-
-// 한글 체크
-function checkKor(str) {
-    const regExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g; 
-    if(regExp.test(str)){
-        return true;
-    }else{
+        // 숫자 자릿수 판별
+        function getDigit(num) {
+            num = num.toString();
+            var i=0;
+            while(num[i]) { i++; };
+                return i;
+        }  
+        
+        document.Application.submit();
     }
-}
-
-// 숫자 체크
-function checkNum(str){
-    const regExp = /[0-9]/g;
-    if(regExp.test(str)){
-        return true;
-    }else{
-    }
-}
-
-// 영문(영어) 체크
-function checkEng(str){
-    const regExp = /[a-zA-Z]/g; // 영어
-    if(regExp.test(str)){
-        return true;
-    }else{
-    }
-}
-
-// // 영문+숫자만 입력 체크
-// function checkEngNum(str) {
-//     const regExp = /[a-zA-Z0-9]/g;
-//     if(regExp.test(str)){
-//         return true;
-//     }else{
-//      
-//     }
-// }
-
-
-// 공백(스페이스 바) 체크
-function checkSpace(str) { 
-    if(str.search(/\s/) !== -1) {
-        return true; // 스페이스가 있는 경우
-    }else{ // 스페이스 없는 경우
-    } 
-}
-
-
 
 </script>
 
 <style>
-
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 </style>
 
