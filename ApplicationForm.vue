@@ -23,8 +23,8 @@
             <input type="password" id="pass" placeholder="영문자+숫자+특수문자 조합">
             <br><br><br><br>
         </form>
-        <div id="join_btn">
-            <button type="button" id="submit" @click="joinform_check();">가입하기</button>
+        <div id="join_btn" class="frame">
+            <button class="custom-btn btn" type="button" id="submit" @click="joinform_check();"><span>가입하기</span></button>
         </div>       
     </div>
     
@@ -210,46 +210,112 @@
         color: rgb(16, 27, 48);
     }
 
-    #submit {
-        font-size: 20px;
-        padding: 5px 10px;
-        background-color: rgb(235, 246, 252);
-        border-radius: 12px;
-        border: 3px solid rgb(177, 217, 252);
-        font-family: 'Tenada';
-        margin: -20px 0 0 0;
-        color: rgb(42, 54, 67);
+    .frame {
+        width: 90%;
+        margin: 0px auto;
+        text-align: center;
     }
 
-    #name, #st_num, #ph_num, #field, #dep, #pass {
-        height: 20px;
-        border-color: rgb(119, 190, 219);
-        background-color: rgb(255, 255, 255);
+    .custom-btn {
+        width: 130px;
+        height: 40px;
+        color: #fff;
         border-radius: 10px;
+        padding: 5px 10px;
         font-family: 'Humanbumsuk';
-        font-size: 17px;
-        margin: 0 0 3px 15px;
-        width: 170px;
-        
+        font-size: 20px;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+        outline: none;
+        margin: -20px 0 0 0;
     }
-    
-    /* #name {
-        width: 100px;
+
+    .btn {
+        background: rgb(0,172,238);
+        background: linear-gradient(0deg, rgb(134, 179, 197) 0%, rgb(171, 208, 245) 100%);
+        width: 130px;
+        height: 40px;
+        line-height: 42px;
+        padding: 0;
+        border: none;  
     }
-    #st_num {
-        width: 120px;
+    .btn span {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
     }
-    #ph_num {
-        width: 150px;
+    .btn:before,
+    .btn:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        background:  rgb(87, 114, 140);
+        transition: all 0.3s ease;
+        }
+    .btn:before {
+        height: 0%;
+        width: 2px;
     }
-    #field {
-        width: 180px;
+    .btn:after {
+        width: 0%;
+        height: 2px;
     }
-    #dep {
-        width: 150px;
+    .btn:hover{
+        background: transparent;
+        box-shadow: none;
     }
-    #pass {
-        width: 180px;
-    } */
+    .btn:hover:before {
+        height: 100%;
+    }
+    .btn:hover:after {
+        width: 100%;
+    }
+    .btn span:hover{
+        color: rgb(67, 88, 107);
+    }
+    .btn span:before,
+    .btn span:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        background:  rgb(67, 88, 107);
+        transition: all 0.3s ease;
+    }
+    .btn span:before {
+        width: 2px;
+        height: 0%;
+    }
+    .btn span:after {
+        width: 0%;
+        height: 2px;
+    }
+    .btn span:hover:before {
+        height: 100%;
+    }
+    .btn span:hover:after {
+        width: 100%;
+    }
+
+        #name, #st_num, #ph_num, #field, #dep, #pass {
+            height: 20px;
+            border-color: rgb(119, 190, 219);
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            font-family: 'Humanbumsuk';
+            font-size: 17px;
+            margin: 0 0 3px 15px;
+            width: 170px;
+            
+        }
 
 </style>
