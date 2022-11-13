@@ -8,7 +8,7 @@
         <input type="text" id="st_num">
         <br><br>
         <label for="ph_num">전화번호 </label>
-        <input type="tel" id="ph_num">
+        <input type="text" id="ph_num">
         <br><br>
         <label for="field">분야 </label>
         <input type="text" id="field">
@@ -42,10 +42,13 @@
         var Pass = document.getElementById("pass");
         
         var kor_check = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g; 
+        var Tel_check = /^[0-9]{2,3}[0-9]{3,4}[0-9]{4}/;
         var Num_check = /^[0-9]+$/g;
         var Pass_check = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/g;
         
         //이름 검사 (한글인지 판별)
+
+        console.log(Name.value.match(kor_check));
 
         if(Name.value == ""){
             alert("이름을 입력하세요.");
@@ -53,8 +56,7 @@
             return false;
         };
         
-
-        if(!kor_check.test(Name.value)){
+        if(Name.value.match(kor_check) == null){
             alert("이름을 다시 입력하세요.");
             Name.focus();
             return false;
@@ -62,13 +64,15 @@
 
         //학번 검사 (8자리 숫자인지 판별)
 
+        console.log(st_Num.value.match(Num_check));
+
         if(st_Num.value == ""){
             alert("학번을 입력하세요.");
             st_Num.focus();
             return false;
         }
 
-        if(!Num_check.test(st_Num.value) || getDigit(st_Num.value) != 8){
+        if(st_Num.value.match(Num_check) == null || getDigit(st_Num.value) != 8){
             alert("학번을 다시 입력하세요.");
             st_Num.focus();
             return false;
@@ -76,18 +80,19 @@
 
         //연락처 검사 (11자리 숫자인지 판별)
 
-        // if(ph_Num.value == ""){
-        //     alert("전화번호를 입력하세요.");
-        //     ph_Num.focus();
-        //     return false;
-        // }
+        console.log(ph_Num.value.match(Tel_check));
 
-        // if(!Num_check.test(ph_Num.value) || getDigit(ph_Num.value) != 11){
-        //     alert("전화번호를 다시 입력하세요.");
-        //     ph_Num.focus();
-        //     console.log(ph_Num.value);
-        //     return false;
-        // }
+        if(ph_Num.value == ""){
+            alert("전화번호를 입력하세요.");
+            ph_Num.focus();
+            return false;
+        }
+
+        if(ph_Num.value.match(Tel_check) == null || getDigit(ph_Num.value) != 11){
+            alert("전화번호를 다시 입력하세요.");
+            ph_Num.focus();
+            return false;
+        }
 
         //분야 검사
 
@@ -107,13 +112,15 @@
 
         //비밀번호 검사 (영어, 숫자, 특수문자 확인)
 
+        console.log(Pass.value.match(Pass_check));
+
         if(Pass.value == ""){
             alert("비밀번호를 입력해주세요.");
             Pass.focus();
             return false;
         }
         
-        if(!Pass_check.test(Pass.value)){
+        if(Pass.value.match(Pass_check) == null){
             alert("비밀번호는 영문자+숫자+특수문자 조합으로 8~25자리 사용해야 합니다.");
             Pass.focus();
             return false;
@@ -130,6 +137,7 @@
         }  
         
         //document.Application.submit();
+
         axios.post('https://jsonplaceholder.typicode.com/users/', 
             {
                 name: Name.value,
@@ -147,6 +155,7 @@
                 console.log(error);
             });
         }
+
 
     
 
