@@ -1,29 +1,33 @@
 <template>
-
-    <form name="Application" method="post">
-        <label for="name">이름 </label>
-        <input type="text" id="name">
-        <br><br>
-        <label for="st_num">학번 </label>
-        <input type="text" id="st_num">
-        <br><br>
-        <label for="ph_num">전화번호 </label>
-        <input type="text" id="ph_num">
-        <br><br>
-        <label for="field">분야 </label>
-        <input type="text" id="field">
-        <br><br>
-        <label for="dep">학과 </label>
-        <input type="text" id="dep">
-        <br><br>
-        <label for="pass">비밀번호 </label>
-        <input type="password" id="pass" placeholder="영문자+숫자+특수문자 조합">
-        <br><br>
-    </form>
-    <div class="join_btn">
-        <button type="button" id="submit" @click="joinform_check();">가입하기</button>
+    <div id="join_form">
+        <!-- v-bind:style="{ 'background-image': url("/assets/images/background.png")}"  -->
+        <h1>동아리 지원서</h1>
+        <br>
+        <form name="Application" method="post">
+            <label for="name">이름 </label>
+            <input type="text" id="name">
+            <br><br>
+            <label for="st_num">학번 </label>
+            <input type="text" id="st_num">
+            <br><br>
+            <label for="ph_num">전화번호 </label>
+            <input type="text" id="ph_num" placeholder=" - 없이 입력">
+            <br><br>
+            <label for="field">분야 </label>
+            <input type="text" id="field">
+            <br><br>
+            <label for="dep">학과 </label>
+            <input type="text" id="dep">
+            <br><br>
+            <label for="pass">비밀번호 </label>
+            <input type="password" id="pass" placeholder="영문자+숫자+특수문자 조합">
+            <br><br><br><br>
+        </form>
+        <div id="join_btn">
+            <button type="button" id="submit" @click="joinform_check();">가입하기</button>
+        </div>       
     </div>
-
+    
 </template>
 
 <script setup>
@@ -162,5 +166,88 @@
 </script>
 
 <style>
+    
+    @font-face {
+        font-family: 'Tenada';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Humanbumsuk';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        background-image: url("C:\학교\동아리\thevision\src\assets\images\background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    h1 {
+        font-size: 50px;
+        font-family: 'Tenada';
+        margin: 10px 0 30px 0;
+        color: rgb(67, 88, 107);
+    }
+
+    #join_form {
+        background-color: white;
+        width: 900px;
+        height: 500px;
+        font-family: 'Humanbumsuk';
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 70px;
+        margin-top: 70px;
+        text-align: center;
+        padding: 50px 0px;
+        color: rgb(16, 27, 48);
+    }
+
+    #submit {
+        font-size: 20px;
+        padding: 5px 10px;
+        background-color: rgb(235, 246, 252);
+        border-radius: 12px;
+        border: 3px solid rgb(177, 217, 252);
+        font-family: 'Tenada';
+        margin: -20px 0 0 0;
+        color: rgb(42, 54, 67);
+    }
+
+    #name, #st_num, #ph_num, #field, #dep, #pass {
+        height: 20px;
+        border-color: rgb(119, 190, 219);
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        font-family: 'Humanbumsuk';
+        font-size: 17px;
+        margin: 0 0 3px 15px;
+    }
+    
+    #name {
+        width: 100px;
+    }
+    #st_num {
+        width: 120px;
+    }
+    #ph_num {
+        width: 150px;
+    }
+    #field {
+        width: 180px;
+    }
+    #dep {
+        width: 150px;
+    }
+    #pass {
+        width: 180px;
+    }
 
 </style>
