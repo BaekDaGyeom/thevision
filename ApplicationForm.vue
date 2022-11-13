@@ -4,22 +4,22 @@
         <h1>동아리 지원서</h1>
         <br>
         <form name="Application" method="post">
-            <label for="name">이름 </label>
+            <label for="name" style="margin:15px">이름 </label>
             <input type="text" id="name">
             <br><br>
-            <label for="st_num">학번 </label>
+            <label for="st_num" style="margin:15px">학번 </label>
             <input type="text" id="st_num">
             <br><br>
-            <label for="ph_num">전화번호 </label>
+            <label for="ph_num" style="margin:3px">전화번호 </label>
             <input type="text" id="ph_num" placeholder=" - 없이 입력">
             <br><br>
-            <label for="field">분야 </label>
+            <label for="field" style="margin:15px">분야 </label>
             <input type="text" id="field">
             <br><br>
-            <label for="dep">학과 </label>
+            <label for="dep" style="margin:15px">학과 </label>
             <input type="text" id="dep">
             <br><br>
-            <label for="pass">비밀번호 </label>
+            <label for="pass" style="margin:3px">비밀번호 </label>
             <input type="password" id="pass" placeholder="영문자+숫자+특수문자 조합">
             <br><br><br><br>
         </form>
@@ -197,7 +197,7 @@
 
     #join_form {
         background-color: white;
-        width: 900px;
+        width: 800px;
         height: 500px;
         font-family: 'Humanbumsuk';
         font-size: 18px;
@@ -206,7 +206,7 @@
         margin-bottom: 70px;
         margin-top: 70px;
         text-align: center;
-        padding: 50px 0px;
+        padding: 50px 50px 50px 50px;
         color: rgb(16, 27, 48);
     }
 
@@ -229,9 +229,11 @@
         font-family: 'Humanbumsuk';
         font-size: 17px;
         margin: 0 0 3px 15px;
+        width: 170px;
+        
     }
     
-    #name {
+    /* #name {
         width: 100px;
     }
     #st_num {
@@ -248,6 +250,6 @@
     }
     #pass {
         width: 180px;
-    }
+    } */
 
 </style>
