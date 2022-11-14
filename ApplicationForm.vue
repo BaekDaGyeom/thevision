@@ -255,7 +255,7 @@
         content: "";
         right: 0;
         top: 0;
-        background:  rgb(87, 114, 140);
+        background: rgb(134, 175, 213);
         transition: all 0.3s ease;
         }
     .btn:before {
@@ -285,7 +285,7 @@
         content: "";
         left: 0;
         bottom: 0;
-        background:  rgb(67, 88, 107);
+        background:  rgb(134, 175, 213);
         transition: all 0.3s ease;
     }
     .btn span:before {
