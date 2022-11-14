@@ -4,19 +4,19 @@
         <h1>동아리 지원서</h1>
         <br>
         <form name="Application" method="post">
-            <label for="name" style="margin:15px">이름 </label>
+            <label for="name" style="margin:18px">이름 </label>
             <input type="text" id="name">
             <br><br>
-            <label for="st_num" style="margin:15px">학번 </label>
+            <label for="st_num" style="margin:18px">학번 </label>
             <input type="text" id="st_num">
             <br><br>
             <label for="ph_num" style="margin:3px">전화번호 </label>
             <input type="text" id="ph_num" placeholder=" - 없이 입력">
             <br><br>
-            <label for="field" style="margin:15px">분야 </label>
+            <label for="field" style="margin:18px">분야 </label>
             <input type="text" id="field">
             <br><br>
-            <label for="dep" style="margin:15px">학과 </label>
+            <label for="dep" style="margin:18px">학과 </label>
             <input type="text" id="dep">
             <br><br>
             <label for="pass" style="margin:3px">비밀번호 </label>
@@ -158,25 +158,22 @@
             .catch(function (error) {
                 console.log(error);
             });
-        }
-
-
-    
+        }  
 
 </script>
 
 <style>
-    
+
     @font-face {
-        font-family: 'Tenada';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
-        font-weight: normal;
+        font-family: 'HallymGothic-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+        font-weight: 400;
         font-style: normal;
     }
 
     @font-face {
-        font-family: 'Humanbumsuk';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+        font-family: 'SEBANG_Gothic_Bold';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
         font-weight: normal;
         font-style: normal;
     }
@@ -190,7 +187,7 @@
 
     h1 {
         font-size: 50px;
-        font-family: 'Tenada';
+        font-family: 'SEBANG_Gothic_Bold';
         margin: 10px 0 30px 0;
         color: rgb(67, 88, 107);
     }
@@ -199,8 +196,8 @@
         background-color: white;
         width: 800px;
         height: 500px;
-        font-family: 'Humanbumsuk';
-        font-size: 18px;
+        font-family: 'HallymGothic-Regular';
+        font-size: 17px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 70px;
@@ -212,7 +209,7 @@
 
     .frame {
         width: 90%;
-        margin: 0px auto;
+        margin: -10px auto;
         text-align: center;
     }
 
@@ -222,7 +219,7 @@
         color: #fff;
         border-radius: 10px;
         padding: 5px 10px;
-        font-family: 'Humanbumsuk';
+        font-family: 'HallymGothic-Regular';
         font-size: 20px;
         font-weight: 500;
         background: transparent;
@@ -238,8 +235,8 @@
     }
 
     .btn {
-        background: rgb(0,172,238);
-        background: linear-gradient(0deg, rgb(134, 179, 197) 0%, rgb(171, 208, 245) 100%);
+        background: rgb(71, 170, 210);
+        background: linear-gradient(0deg, rgb(97, 161, 186) 0%, rgb(192, 220, 249) 100%);
         width: 130px;
         height: 40px;
         line-height: 42px;
@@ -311,7 +308,7 @@
             border-color: rgb(119, 190, 219);
             background-color: rgb(255, 255, 255);
             border-radius: 10px;
-            font-family: 'Humanbumsuk';
+            font-family: 'HallymGothic-Regular';
             font-size: 17px;
             margin: 0 0 3px 15px;
             width: 170px;
